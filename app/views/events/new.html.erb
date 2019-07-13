@@ -1,0 +1,20 @@
+<div class="events">
+	<%= form_for(@event) do |f| %>
+		<ul class="content">
+			<% @event.errors.full_messages.each do |err| %>
+				<li><%= err%></li>
+			<% end %>
+		</ul>
+		<p class="content">
+			<%= f.label :Date %> </br>
+			<%= f.date_field :date %>
+		</p>
+		<p class="content">
+			<%= f.label :Description %> </br>
+			<%= f.text_field :description %>
+		</p>
+		<p class="content">
+			<%= f.submit "Create Event"%>
+		</p>
+	<%end%>
+</div>
