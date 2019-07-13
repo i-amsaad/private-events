@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 	end
 	def show
 		@user=User.find(params[:id])
-		puts @user
+		@events=@user.events
 	end
 	def user_params
 		params.require(:user).permit(:username)

@@ -1,5 +1,4 @@
-
- .container{
+.container{
 	align:center;	
 	margin:150px;
 	display:inline-block;
@@ -12,4 +11,14 @@
 .content{
 	margin: 10px;
 	color: white;
+}
+.events{
+	align:left;	
+	display:inline-block ;
+	width:35%;
+	background-image: url(back.png);
+	border-radius: 10px;
+	background-size: cover;
+	padding:15px;
+	color:white;
 }

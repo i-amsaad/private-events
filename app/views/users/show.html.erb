@@ -1,0 +1,11 @@
+</br></br></br>
+<div class="events">
+	<h2 style="text-align: center;">Events</h2>
+	<% if @events.any? %>
+		<% @events.each do |event| %>
+			<h5><%= event.description %></h5>
+		<%end%>
+	<% else %>
+		<h5>No Events Created </h5>
+	<%end%>
+</div>
