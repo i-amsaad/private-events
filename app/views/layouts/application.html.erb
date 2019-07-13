@@ -18,11 +18,18 @@
       <div class="logout">
         <%= button_to "Log out", session_path(session[:id]), method: :delete%>
       </div>
+    <%else%>
+      <div class="logout">
+        <%= button_to "Sign In", new_session_path, method: :get%>
+      </div>
+      <div class="logout">
+        <%= button_to "Sign up", new_user_path, method: :get%>
+      </div>
     <%end%>
     <% flash.each do |name, msg| -%>
       <h4 class="content"><%= msg %></h4>
     <% end -%>
-  </br></br></br>
+  </br></br></br></br>
     <%= yield %>
   </body>
 </html>

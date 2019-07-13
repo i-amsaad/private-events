@@ -11,6 +11,7 @@ class EventsController < ApplicationController
 		redirect_to(@user)
 	end
 	def show
+		@event=Event.find(params[:id])
 	end
 	def event_params
 		params.require(:event).permit(:date,:description)
