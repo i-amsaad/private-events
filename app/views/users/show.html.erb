@@ -1,1 +1,7 @@
-<h1><%= @user.username %></h1>
+<div class="username">
+	<h1 class="content"><%= @user.username %></h1>
+</div>
+<div class="logout">
+	<%= button_to "Log out", session_path(session[:id]), method: :delete%>
+</div>
+	

@@ -1,14 +1,14 @@
 <%= form_for(@user) do |f| %>
-	<ul>
+	<ul class="content">
 		<% @user.errors.full_messages.each do |err| %>
 			<li><%= err%></li>
 		<% end %>
 	</ul>
-	<p>
+	<p class="content">
 		<%= f.label :Name %> </br>
 		<%= f.text_field :username %>
 	</p>
-	<p>
-		<%= f.submit %>
+	<p class="content">
+		<%= f.submit "Sign up"%>
 	</p>
 <%end%>

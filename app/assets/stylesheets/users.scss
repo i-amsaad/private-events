@@ -1,3 +1,33 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.container{
+	align:center;	
+	margin:150px;
+	display:inline-block;
+	width: 400px;
+	background-image: url(back.png);
+	border-radius: 10px;
+	background-size: cover;
+	padding:15px;
+}
+.content{
+	margin: 10px;
+	color: white;
+}
+body{
+	background-image: url(background.jpg);
+	background-size: cover;
+}
+.username{
+	height: 50px;
+	display:inline-block;
+	background-image: url(back.png);
+	margin-left:-20px;
+	background-size: cover;
+	font-size: 10px;
+	padding-left:10px;
+	border-radius:10px;
+}
+.logout{
+	display:inline-block;
+	float:right;
+	padding: 5px;
+}

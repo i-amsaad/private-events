@@ -1,0 +1,20 @@
+<div class="container">
+	<h1 class="content"> Sign In </h1>
+	<%= form_for(@user, url:{:controller=>'sessions', :action=>'create'}) do |f| %>
+		<ul class="content">
+			<% @user.errors.full_messages.each do |err| %>
+				<li><%= err%></li>
+			<% end %>
+		</ul>
+		<p class="content">
+			<%= f.label :Name %> </br>
+			<%= f.text_field :username %>
+		</p>
+		<p class="content">
+			<%= f.submit "Sign in" %>
+		</p>
+	<%end%>
+	<p class="content">
+		<%= link_to "Sign up", new_user_path, method: :get, style: 'color:#FFF;' %>
+	</p>
+</div>
