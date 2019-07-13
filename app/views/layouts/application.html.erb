@@ -10,8 +10,17 @@
   </head>
 
   <body>
+    <%= image_tag "logo.png",  style: 'float:left;height:80px;width:250px;'  %></br>
+    <% if session[:id]!=nil %>
+      <div class="username">
+        <h1 class="content"><%= session[:username] %></h1>
+      </div>
+      <div class="logout">
+        <%= button_to "Log out", session_path(session[:id]), method: :delete%>
+      </div>
+    <%end%>
     <% flash.each do |name, msg| -%>
-      <h3 class="content"><%= msg %></h3>
+      <h4 class="content"><%= msg %></h4>
     <% end -%>
     <%= yield %>
   </body>

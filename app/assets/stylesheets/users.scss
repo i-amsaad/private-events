@@ -1,4 +1,5 @@
-.container{
+
+ .container{
 	align:center;	
 	margin:150px;
 	display:inline-block;
@@ -11,23 +12,4 @@
 .content{
 	margin: 10px;
 	color: white;
-}
-body{
-	background-image: url(background.jpg);
-	background-size: cover;
-}
-.username{
-	height: 50px;
-	display:inline-block;
-	background-image: url(back.png);
-	margin-left:-20px;
-	background-size: cover;
-	font-size: 10px;
-	padding-left:10px;
-	border-radius:10px;
-}
-.logout{
-	display:inline-block;
-	float:right;
-	padding: 5px;
 }

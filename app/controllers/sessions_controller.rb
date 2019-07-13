@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
 		@c_user=User.find_by(username_params)
 		if @c_user!=nil
 			session[:id]=@c_user.id
+			session[:username]=@c_user.username
 			redirect_to(@c_user)
 		else
 			flash[:notice] = "User Not Found"
