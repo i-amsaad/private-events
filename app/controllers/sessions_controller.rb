@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 		@user=User.new
 	end
 	def create
-		@c_user=User.find_by(username_params)
+		@c_user=User.find_by(params[:username].to_s.downcase)
 		if @c_user!=nil
 			session[:id]=@c_user.id
 			session[:username]=@c_user.username
@@ -14,9 +14,6 @@ class SessionsController < ApplicationController
 			redirect_to("/signin") #new_session_path
 			#could be done as redirect_to new_session_path but to show sigin in in url it is done like this
 		end
-	end
-	def username_params
-		params.require(:user).permit(:username)
 	end
 	def destroy
 		session[:id]=nil
@@ -29,4 +26,5 @@ class SessionsController < ApplicationController
 			redirect_to(@user)
 		end
 	end
+
 end

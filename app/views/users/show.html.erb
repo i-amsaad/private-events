@@ -1,8 +1,14 @@
 <div class="events">
-	<h2 style="text-align: center;">Events</h2>
+	<h2 style="text-align: center;">
+		<% if @user.id!=session[:id] %>
+			Events by <%= @events.first.creator.username %>
+		<%else%>
+			Your Events
+		<%end%>
+	</h2>
 	<% if @events.any? %>
 		<% @events.each do |event| %>
-			<h5><%= event.description %></h5>
+			<h5><%= link_to event.description, event_path(event), style:'color:white; text-decoration: none;' %></h5>
 		<%end%>
 	<% else %>
 		<h5>No Events Created </h5>
