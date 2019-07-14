@@ -1,11 +1,25 @@
-</br></br></br></br>
 <div class="events">
-	<h2 style="text-align: center;">Events</h2>
-	<% if @events.any? %>
-		<% @events.each do |event| %>
-			<h5><%= link_to event.description, event_path(event), style:'color:white; text-decoration: none;' %></h5>
+	<h2 style="text-align: center;">
+		Upcoming Events
+	</h2>
+	<% if @upcoming.any? %>
+		<% @upcoming.each do |attending| %>
+			<h5><%= link_to attending.description, event_path(attending), style:'color:white; text-decoration: none;' %></h5>
 		<%end%>
 	<% else %>
-		<h5>No Events Found </h5>
+		<h5>No Upcoming Events  </h5>
+	<%end%>
+</div>
+
+<div class="events">
+	<h2 style="text-align: center;">
+		Previous Events
+	</h2>
+	<% if @previous.any? %>
+		<% @previous.each do |attending| %>
+			<h5><%= link_to attending.description, event_path(attending), style:'color:white; text-decoration: none;' %></h5>
+		<%end%>
+	<% else %>
+		<h5>No Previous Events </h5>
 	<%end%>
 </div>
