@@ -10,7 +10,8 @@
   </head>
 
   <body>
-    <%= image_tag "logo.png",  style: 'float:left;height:80px;width:250px;'  %></br>
+    <%= image_tag "logo.png",  style: 'float:left;height:80px;width:250px;'  %>
+    </br>
     <% if session[:id]!=nil %>
       <div class="username">
         <h1 class="content"><%= session[:username] %></h1>
@@ -26,10 +27,20 @@
         <%= button_to "Sign up", new_user_path, method: :get%>
       </div>
     <%end%>
+    </br></br></br></br>
+    <div class="events_button">
+        <%= button_to "EVENTS", events_path, method: :get%>
+    </div>
+    <% if session[:id]!=nil %>
+          <div class="events_button">
+            <%= button_to "Create Event", new_event_path, method: :get%>
+          </div>
+        <%end%>
+    </br>
     <% flash.each do |name, msg| -%>
       <h4 class="content"><%= msg %></h4>
     <% end -%>
-  </br></br></br></br>
+  </br>
     <%= yield %>
   </body>
 </html>
