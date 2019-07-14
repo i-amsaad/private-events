@@ -1,5 +1,16 @@
 <div class="events">
-	<h1><%= @event.description %></h1>
+	<h1 style="text-align: center;"><%= @event.description %></h1>
 	<h5>Event Date: <%=  @event.date %></h5>
 	<h5>Event Creator: <%= @event.creator.username %></h5>
+</div>
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+<div class="events">
+	<h1 style="text-align: center;">Event Attendees</h1>
+	<% if @attendees.any? %>
+		<% @attendees.each do |attendee|%>
+			<%= link_to attendee.username, user_path(attendee), style:'color:white; text-decoration: none;' %>
+		<%end%>
+	<%else%>
+		<h5>No Event Attendees Found!</h5>
+	<%end%>
 </div>
