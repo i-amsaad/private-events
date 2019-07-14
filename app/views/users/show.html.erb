@@ -14,3 +14,16 @@
 		<h5>No Events Created </h5>
 	<%end%>
 </div>
+
+<div class="events">
+	<h2 style="text-align: center;">
+		Attending Events
+	</h2>
+	<% if @attendings.any? %>
+		<% @attendings.each do |attending| %>
+			<h5><%= link_to attending.description, event_path(attending), style:'color:white; text-decoration: none;' %></h5>
+		<%end%>
+	<% else %>
+		<h5>No Events Attendings </h5>
+	<%end%>
+</div>
