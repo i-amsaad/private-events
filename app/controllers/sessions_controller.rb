@@ -4,7 +4,10 @@ class SessionsController < ApplicationController
 		@user=User.new
 	end
 	def create
-		@c_user=User.find_by(params[:username].to_s.downcase)
+		puts params[:username]
+		@c_user=User.find_by(username: params[:user][:username])
+		#@c_user=User.find_by username: "#{params[:username].to_s.downcase}"
+		puts @c_user
 		if @c_user!=nil
 			session[:id]=@c_user.id
 			session[:username]=@c_user.username
