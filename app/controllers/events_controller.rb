@@ -1,8 +1,8 @@
 class EventsController < ApplicationController
 	before_action :check_loggedin, only: [:new, :create]
 	def index
-		@upcoming=Event.upcoming_events
-		@previous=Event.previous_events
+		@upcoming_events=Event.upcoming_events
+		@previous_events=Event.previous_events
 	end
 	def new
 		@event=Event.new
@@ -14,7 +14,7 @@ class EventsController < ApplicationController
 	def show
 		@event=Event.find(params[:id])
 		@attendees=@event.attendees
-		@current_user_attending = session[:id].present? && @attendees.exists?(session[:id])
+		@current_user_attending = !@current_user.blank? && @attendees.exists?(@current_user.id)
 	end
 	
 	def event_params
@@ -22,14 +22,14 @@ class EventsController < ApplicationController
 	end
 
 	def check_loggedin
-		if !@current_user.present?
+		#This method checks opposite condition to the one checked in application controller's check_loggedin 
+		if @current_user.blank?
 			flash[:notice]="Please, Login to create an Event"
 			redirect_to("/signin")
 		end
 	end
 	def attending
-		@event_attendee=@current_user.event_attendings.new(attended_event_id: params[:event_id])
-		@event_attendee.save
+		@current_user.event_attendings.create(attended_event_id: params[:event_id])
 		redirect_to(@current_user)
 	end
 end

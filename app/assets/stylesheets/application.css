@@ -34,3 +34,8 @@ body{
 	float:right;
 	padding: 5px;
 }
+.logo{
+	float:left;
+	height:80px;
+	width:250px;
+}

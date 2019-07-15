@@ -1,42 +1,38 @@
 <div class="events">
-	<h2 style="text-align: center;">
-		<% if @user.id!=session[:id] %>
-			Events by <%= @events.first.creator.username %>
-		<%else%>
-			Your Events
-		<%end%>
-	</h2>
-	<% if @events.any? %>
-		<% @events.each do |event| %>
-			<h5><%= link_to event.description, event_path(event), style:'color:white; text-decoration: none;' %></h5>
-		<%end%>
-	<% else %>
-		<h5>No Events Created </h5>
-	<%end%>
+  <h2>
+    <% if @user.id!=@current_user.id %>
+      Events by <%= @events.first.creator.username %>
+    <% else %>
+      Your Events
+    <% end %>
+  </h2>
+  <% if @events.any? %>
+    <% @events.each do |event| %>
+      <h5><%= link_to event.description, event, class: "links" %></h5>
+    <% end %>
+  <% else %>
+    <h5>No Events Created </h5>
+  <% end %>
 </div>
 
 <div class="events">
-	<h2 style="text-align: center;">
-		Upcoming Events
-	</h2>
-	<% if @upcoming_attendings.any? %>
-		<% @upcoming_attendings.each do |attending| %>
-			<h5><%= link_to attending.description, event_path(attending), style:'color:white; text-decoration: none;' %></h5>
-		<%end%>
-	<% else %>
-		<h5>No Upcoming Events  </h5>
-	<%end%>
+  <h2>Upcoming Events</h2>
+  <% if @upcoming_attendances.any? %>
+    <% @upcoming_attendances.each do |attendance| %>
+      <h5><%= link_to attendance.description, attendance, class: "links" %></h5>
+    <%end%>
+  <% else %>
+    <h5>No Upcoming Events  </h5>
+  <%end%>
 </div>
 
 <div class="events">
-	<h2 style="text-align: center;">
-		Previous Events
-	</h2>
-	<% if @previous_attendings.any? %>
-		<% @previous_attendings.each do |attending| %>
-			<h5><%= link_to attending.description, event_path(attending), style:'color:white; text-decoration: none;' %></h5>
-		<%end%>
-	<% else %>
-		<h5>No Previous Events </h5>
-	<%end%>
+  <h2>Previous Events</h2>
+  <% if @previous_attendances.any? %>
+    <% @previous_attendances.each do |attendance| %>
+      <h5><%= link_to attendance.description, attendance, class: "links" %></h5>
+    <%end%>
+  <% else %>
+    <h5>No Previous Events </h5>
+  <%end%>
 </div>

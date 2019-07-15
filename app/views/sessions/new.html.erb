@@ -3,7 +3,7 @@
 	<%= form_for(:user, url: sessions_path, method: :post) do |f| %>
 		<ul class="content">
 			<% @user.errors.full_messages.each do |err| %>
-				<li><%= err%></li>
+				<li><%= err %></li>
 			<% end %>
 		</ul>
 		<p class="content">
@@ -13,8 +13,8 @@
 		<p class="content">
 			<%= f.submit "Sign in" %>
 		</p>
-	<%end%>
+	<% end %>
 	<p class="content">
-		<%= link_to "Sign up", new_user_path, method: :get, style: 'color:#FFF;' %>
+		<%= link_to "Sign up?", new_user_path, method: :get,class: "session_links" %>
 	</p>
 </div>

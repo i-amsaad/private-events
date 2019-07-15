@@ -1,25 +1,21 @@
-
 <% if @current_user_attending %>
-	<h5 class="logout" style="color: white;">You are attending this event</h5>
-
-<% elsif session[:id].present? %>
-	<div class="logout">
-		
-	</div>
+	<h5 class="logout">You are attending this event</h5>
+<% elsif !@current_user.blank? %>
+		<%=button_to 'Attending', attending_url(event_id: @event.id),class: "logout" %>
 <% end %>	
 
 <div class="events">
-	<h1 style="text-align: center;"><%= @event.description %></h1>
+	<h1><%= @event.description %></h1>
 	<h5>Event Date: <%=  @event.date %></h5>
 	<h5>Event Creator: <%= @event.creator.username %></h5>											
 </div>
 <div class="events">
-	<h1 style="text-align: center;">Event Attendees</h1>
+	<h1>Event Attendees</h1>
 	<% if @attendees.any? %>
-		<% @attendees.each do |attendee|%>
-			<h5><%= link_to attendee.username,attendee, style:'color:white; text-decoration: none;' %></h5>
-		<%end%>
-	<%else%>
+		<% @attendees.each do |attendee| %>
+			<h5><%= link_to attendee.username,attendee, class: "links" %></h5>
+		<% end %>
+	<% else %>
 		<h5>No Event Attendees Found!</h5>
-	<%end%>
+	<% end %>
 </div>

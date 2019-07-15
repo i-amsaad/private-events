@@ -4,43 +4,29 @@
     <title>PrivateEvents</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= image_tag "logo.png",  style: 'float:left;height:80px;width:250px;'  %>
-    </br>
-    <% if session[:id]!=nil %>
-      <div class="username">
-        <h1 class="content"><%= session[:username] %></h1>
-      </div>
+    <%= image_tag "logo.png",  class: "logo" %></br>
+    <% if !@current_user.blank? %>
+      <div class="username"><h1 class="content"><%= @current_user.username %></h1></div>
+      <div class="logout"><%= button_to "Log out", session_path(@current_user.id), method: :delete %></div>
+    <% else %>
       <div class="logout">
-        <%= button_to "Log out", session_path(session[:id]), method: :delete%>
+        <%= button_to "Sign In", new_session_path, method: :get %>
+        <%= button_to "Sign up", new_user_path, method: :get %>
       </div>
-    <%else%>
-      <div class="logout">
-        <%= button_to "Sign In", new_session_path, method: :get%>
-      </div>
-      <div class="logout">
-        <%= button_to "Sign up", new_user_path, method: :get%>
-      </div>
-    <%end%>
+    <% end %>
     </br></br></br></br>
-    <div class="events_button">
-        <%= button_to "EVENTS", events_path, method: :get%>
-    </div>
-    <% if session[:id]!=nil %>
-          <div class="events_button">
-            <%= button_to "Create Event", new_event_path, method: :get%>
-          </div>
-        <%end%>
-    </br>
-    <% flash.each do |name, msg| -%>
+    <div class="events_button"><%= button_to "EVENTS", events_path, method: :get %></div>
+    <% if !@current_user.blank? %>
+          <div class="events_button"><%= button_to "Create Event", new_event_path, method: :get %></div>
+    <% end %></br>
+    <% flash.each do |name, msg| %>
       <h4 class="content"><%= msg %></h4>
-    <% end -%>
-  </br>
+    <% end %></br>
     <%= yield %>
   </body>
 </html>
