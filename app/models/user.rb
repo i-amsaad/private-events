@@ -5,4 +5,6 @@ class User < ApplicationRecord
     dependent: :delete_all
     has_many :attended_events, through: :event_attendings,
     dependent: :delete_all
+
+    validates :username, uniqueness: true
 end

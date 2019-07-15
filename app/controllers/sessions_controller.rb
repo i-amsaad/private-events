@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-	before_action :check_loginned, only: [:new, :create]
+	before_action :check_loggedin, only: [:new, :create]
 	def new
 		@user=User.new
 	end
@@ -20,10 +20,11 @@ class SessionsController < ApplicationController
 	end
 	def destroy
 		session[:id]=nil
+		@current_user=nil
 		redirect_to ("/signin") #new_session_path
 		#could be done as redirect_to new_session_path but to show sigin in in url it is done like this
 	end
-	def check_loginned
+	def check_loggedin
 		if session[:id]!=nil
 			@user=User.find(session[:id])
 			redirect_to(@user)
