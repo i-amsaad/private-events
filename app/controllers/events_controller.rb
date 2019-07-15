@@ -33,4 +33,10 @@ class EventsController < ApplicationController
 			redirect_to("/signin")
 		end
 	end
+	def attending
+		@user=User.find(params[:user_id])
+		@event_attendee=@user.event_attendings.new(attended_event_id: params[:event_id])
+		@event_attendee.save
+		redirect_to(@user)
+	end
 end

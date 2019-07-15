@@ -5,4 +5,5 @@ Rails.application.routes.draw do
 	resources:events
 	get '/signin', to: 'sessions#new'
 	get '/signout', to: 'sessions#destroy'
+	post 'button' => 'events#attending'
 end

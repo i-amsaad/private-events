@@ -13,8 +13,8 @@
 		<h5>No Event Attendees Found!</h5>
 	<%end%>
 </div>
-<div>
-	<% if @current_user_attendent==true %>
-	
-	<%end%>
-</div>
+<% if @current_user_attendent==false and session[:id]!=nil %>
+	<%=button_to 'Attending', {:controller => "events", :action => "attending", :event_id => @event.id, :user_id=> session[:id]} , :method=>:post  %>
+<%elsif @current_user_attendent==true %>
+	<h5 class="content">You are attending this event</h5>
+<%end%>
