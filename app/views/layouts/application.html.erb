@@ -10,7 +10,7 @@
 
   <body>
     <%= image_tag "logo.png",  class: "logo" %></br>
-    <% if !@current_user.blank? %>
+    <% if @current_user.present? %>
       <div class="username"><h1 class="content"><%= @current_user.username %></h1></div>
       <div class="logout"><%= button_to "Log out", session_path(@current_user.id), method: :delete %></div>
     <% else %>
@@ -21,7 +21,7 @@
     <% end %>
     </br></br></br></br>
     <div class="events_button"><%= button_to "EVENTS", events_path, method: :get %></div>
-    <% if !@current_user.blank? %>
+    <% if @current_user.present? %>
           <div class="events_button"><%= button_to "Create Event", new_event_path, method: :get %></div>
     <% end %></br>
     <% flash.each do |name, msg| %>

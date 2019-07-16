@@ -18,7 +18,7 @@ class EventsController < ApplicationController
   def show
     @event=Event.find(params[:id])
     @attendees=@event.attendees
-    @current_user_attending = !@current_user.blank? && @attendees.exists?(@current_user.id)
+    @current_user_attending = @current_user.present? && @attendees.exists?(@current_user.id)
   end
   
   def event_params
@@ -27,7 +27,7 @@ class EventsController < ApplicationController
 
   def check_loggedin
     #This method checks opposite condition to the one checked in application controller's check_loggedin 
-    if @current_user.blank?
+    unless @current_user.present?
       flash[:notice]="Please, Login to create an Event"
       redirect_to("/signin")
     end

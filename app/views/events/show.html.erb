@@ -1,6 +1,6 @@
 <% if @current_user_attending %>
   <h5 class="logout">You are attending this event</h5>
-<% elsif !@current_user.blank? %>
+<% elsif @current_user.present? %>
     <%=button_to 'Attend', attending_event_path(event_id: @event.id),class: "logout" %>
 <% end %> 
 
