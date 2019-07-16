@@ -6,8 +6,7 @@ class ApplicationController < ActionController::Base
 
   def check_loggedin
     if @current_user.present?
-      flash[:notice]="You are already logged in."
-      redirect_to(User.find(session[:id]))
+      redirect_to(@current_user, notice: "You are already logged in.")
     end
   end
 end

@@ -11,7 +11,7 @@
   <body>
     <%= image_tag "logo.png",  class: "logo" %></br>
     <% if @current_user.present? %>
-      <div class="username"><h1 class="content"><%= @current_user.username %></h1></div>
+      <div class="username"><h1 class= "content"><%= @current_user.username %></h1></div>
       <div class="logout"><%= button_to "Log out", session_path(@current_user.id), method: :delete %></div>
     <% else %>
       <div class="logout">

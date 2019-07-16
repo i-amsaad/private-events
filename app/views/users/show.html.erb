@@ -17,9 +17,9 @@
 
 <div class="events">
   <h2>Upcoming Events</h2>
-  <% if @upcoming_attendances.any? %>
-    <% @upcoming_attendances.each do |attendance| %>
-      <h5><%= link_to attendance.description, attendance, class: "links" %></h5>
+  <% if @upcoming_events.any? %>
+    <% @upcoming_events.each do |event| %>
+      <h5><%= link_to event.description, event, class: "links" %></h5>
     <%end%>
   <% else %>
     <h5>No Upcoming Events  </h5>
@@ -28,9 +28,9 @@
 
 <div class="events">
   <h2>Previous Events</h2>
-  <% if @previous_attendances.any? %>
-    <% @previous_attendances.each do |attendance| %>
-      <h5><%= link_to attendance.description, attendance, class: "links" %></h5>
+  <% if @previous_events.any? %>
+    <% @previous_events.each do |event| %>
+      <h5><%= link_to event.description, event, class: "links" %></h5>
     <%end%>
   <% else %>
     <h5>No Previous Events </h5>
