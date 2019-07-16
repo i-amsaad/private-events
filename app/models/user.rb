@@ -6,5 +6,5 @@ class User < ApplicationRecord
     has_many :attended_events, through: :event_attendings,
     dependent: :delete_all
 
-    validates :username, uniqueness: true
+    validates :username, uniqueness: true, presence: true
 end

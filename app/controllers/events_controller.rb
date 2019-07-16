@@ -8,8 +8,12 @@ class EventsController < ApplicationController
 		@event=Event.new
 	end
 	def create
-		@current_user.events.create(event_params)
-		redirect_to(@current_user)
+		@event=@current_user.events.new(event_params)
+		if @event.save
+			redirect_to(@current_user)
+		else
+			render :new
+		end
 	end
 	def show
 		@event=Event.find(params[:id])

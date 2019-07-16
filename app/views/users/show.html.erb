@@ -1,9 +1,9 @@
 <div class="events">
   <h2>
-    <% if @user.id!=@current_user.id %>
-      Events by <%= @events.first.creator.username %>
-    <% else %>
+    <% if !@current_user.blank? && @user.id.equal?(@current_user.id) %>
       Your Events
+    <% else %>
+      Events by <%= @user.username %>
     <% end %>
   </h2>
   <% if @events.any? %>
