@@ -1,21 +1,21 @@
 <% if @current_user_attending %>
-	<h5 class="logout">You are attending this event</h5>
+  <h5 class="logout">You are attending this event</h5>
 <% elsif !@current_user.blank? %>
-		<%=button_to 'Attending', attending_url(event_id: @event.id),class: "logout" %>
-<% end %>	
+    <%=button_to 'Attend', attending_url(event_id: @event.id),class: "logout" %>
+<% end %> 
 
 <div class="events">
-	<h1><%= @event.description %></h1>
-	<h5>Event Date: <%=  @event.date %></h5>
-	<h5>Event Creator: <%= @event.creator.username %></h5>											
+  <h1><%= @event.description %></h1>
+  <h5>Event Date: <%=  @event.date %></h5>
+  <h5>Event Creator: <%= @event.creator.username %></h5>                      
 </div>
 <div class="events">
-	<h1>Event Attendees</h1>
-	<% if @attendees.any? %>
-		<% @attendees.each do |attendee| %>
-			<h5><%= link_to attendee.username,attendee, class: "links" %></h5>
-		<% end %>
-	<% else %>
-		<h5>No Event Attendees Found!</h5>
-	<% end %>
+  <h1>Event Attendees</h1>
+  <% if @attendees.any? %>
+    <% @attendees.each do |attendee| %>
+      <h5><%= link_to attendee.username,attendee, class: "links" %></h5>
+    <% end %>
+  <% else %>
+    <h5>No Event Attendees Found!</h5>
+  <% end %>
 </div>

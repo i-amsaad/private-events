@@ -15,27 +15,27 @@
  *= require_self
  */
 body{
-	background-image: url(background.jpg);
-	background-size: cover;
+  background-image: url(background.jpg);
+  background-size: cover;
 }
 .username{
-	height: 50px;
-	display:inline-block;
-	background-image: url(back.png);
-	margin-left:-20px;
-	background-size: cover;
-	font-size: 10px;
-	padding-left:10px;
-	padding-right: 10px;
-	border-radius:10px;
+  height: 50px;
+  display:inline-block;
+  background-image: url(back.png);
+  margin-left:-20px;
+  background-size: cover;
+  font-size: 10px;
+  padding-left:10px;
+  padding-right: 10px;
+  border-radius:10px;
 }
  .logout{
-	display:inline-block;
-	float:right;
-	padding: 5px;
+  display:inline-block;
+  float:right;
+  padding: 5px;
 }
 .logo{
-	float:left;
-	height:80px;
-	width:250px;
+  float:left;
+  height:80px;
+  width:250px;
 }
