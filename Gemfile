@@ -9,6 +9,8 @@ gem 'rails', '~> 6.0.0.rc1'
 gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
+#For Email Preview in development
+gem 'letter_opener', :group => :development
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
